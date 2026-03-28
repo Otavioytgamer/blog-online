@@ -28,7 +28,7 @@
 
      
         <div class="btn-add-container">
-            <a href="cad-postagem.php" class="btn-add">
+            <a href="cad-postagens.php" class="btn-add">
                 <i class="fa-solid fa-plus"></i> Adicionar Postagem
             </a>
         </div>

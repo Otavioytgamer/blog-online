@@ -28,7 +28,7 @@
 
      
         <div class="btn-add-container">
-            <a href="cad-categoria.php" class="btn-add">
+            <a href="cad-categoria_old.php" class="btn-add">
                 <i class="fa-solid fa-plus"></i> Adicionar Categoria
             </a>
         </div>

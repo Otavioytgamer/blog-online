@@ -1,44 +1,15 @@
-<section class="card-form">
-    <div class="form-header">
-        <h2><i class="fa-solid fa-user-plus"></i> Novo Usuário</h2>
-        <p>Preencha os dados abaixo para registrar um novo acesso.</p>
-    </div>
-
-    <form action="processa.php" method="POST">
-        <div class="form-group">
-            <label for="nome">Nome Completo</label>
-            <input type="text" id="nome" name="nome" placeholder="Ex: Eric Freitas" required>
-        </div>
-
-        <div class="form-group">
-            <label for="email">E-mail</label>
-            <input type="email" id="email" name="email" placeholder="nome@empresa.com" required>
-        </div>
-
-        <div class="form-row">
-            <div class="form-group flex-1">
-                <label for="senha">Senha</label>
-                <input type="password" id="senha" name="senha" required>
-            </div>
-            <div class="form-group flex-1">
-                <label for="nivel">Nível</label>
-                <select id="nivel" name="nivel">
-                    <option value="1">Usuário</option>
-                    <option value="2">Administrador</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="form-actions">
-            <button type="submit" class="btn-save">Finalizar Cadastro</button>
-            <a href="usuarios.php" class="btn-cancel">Cancelar</a>
-        </div>
-    </form>
-</section>
 
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Usuários</title>
+    <link rel="stylesheet" href="usuarios.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<style>
+    <style>
     
 .card-form {
     background: white;
@@ -99,4 +70,76 @@ input:focus {
     cursor: pointer;
     font-weight: bold;
 }
+.btn-cancel {
+    background-color: #e74c3c;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+}
+
+
 </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.php">Início</a>
+        <a href="usuarios.php" class="active">Usuários</a>
+        <a href="categorias.php">Categorias</a>
+        <a href="postagens.php">Postagens</a>
+
+        <div class="perfil-usuario">
+            <img src="https://play-lh.googleusercontent.com/jeNGu6ehpO1E-44ltojEoEAmQApE015dsuFVeqVGsizBGzlydGV8aq5C_gZrj59F93s=w240-h480-rw" alt="Avatar">
+            <span>Otávio Augusto</span>
+        </div>
+    </nav>
+
+    <main>
+      <section class="card-form">
+    <div class="form-header">
+        <h2><i class="fa-solid fa-user-plus"></i> Novo Usuário</h2>
+        <p>Preencha os dados abaixo para registrar um novo acesso.</p>
+    </div>
+
+    <form action="processa.php" method="POST">
+        <div class="form-group">
+            <label for="nome">Nome Completo</label>
+            <input type="text" id="nome" name="nome" placeholder="Ex: Eric Freitas" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="nome@empresa.com" required>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group flex-1">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" required>
+            </div>
+            <div class="form-group flex-1">
+                <label for="nivel">Nível</label>
+                <select id="nivel" name="nivel">
+                    <option value="1">Usuário</option>
+                    <option value="2">Administrador</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn-save">Finalizar Cadastro</button>
+            <a href="usuarios.php" class="btn-cancel">Cancelar</a>
+        </div>
+    </form>
+</section>
+    </main>
+
+    <footer>
+        © 2026 - Desenvolvido na aula de Web I
+    </footer>
+
+</body>
+</html>
