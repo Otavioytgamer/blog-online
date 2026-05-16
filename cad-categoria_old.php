@@ -1,107 +1,137 @@
-<section class="card-form">
-    <div class="form-header">
-        <h2><i class="fa-solid fa-user-plus"></i> Nova Categoria</h2>
-        <p>Preencha os dados abaixo para registrar um nova categoria</p>
-    </div>
-
-    <form action="processa.php" method="POST">
-        <div class="form-group">
-            <label for="id">ID</label>
-            <input type="text" id="id" name="id" placeholder="" readonly>
-        </div>
-
-        <div class="form-group">
-            <label for="nome">Nome Completo</label>
-            <input type="text" id="nome" name="nome" placeholder="" required>
-        </div>
-
-        <div class="form-group">
-            <label for="status">Status</label>
-            <select id="status" name="status" required>
-                <option value="">Selecione o status</option>
-                <option value="1" selected>Ativo</option>
-                <option value="0">Inativo</option>
-            </select>
-        </div>
-
-        <div class="form-actions">
-            <button type="submit" class="btn-save">Finalizar Cadastro</button>
-            <a href="categorias.php" class="btn-cancel">Cancelar</a>
-        </div>
-    </form>
-</section>
-
-
-
-<style>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Categoria</title>
+    <link rel="stylesheet" href="dash.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
-.card-form {
-    background: white;
-    max-width: 700px; 
-    margin: 20px auto;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-}
+    <style>
+        .form-card {
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 35px 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .form-card h2 {
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 26px;
+        }
+        .form-card p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+        .form-group {
+            margin-bottom: 22px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: #333;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .btn-save {
+            flex: 1;
+            padding: 14px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .btn-cancel {
+            flex: 1;
+            padding: 14px;
+            background: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+    </style>
+</head>
+<body>
 
-.form-header { 
-    margin-bottom: 25px; 
-    border-bottom: 1px solid #eee; 
-    padding-bottom: 15px; 
-}
+    <nav>
+        <a href="index.php">Início</a>
+        <a href="usuarios.php">Usuários</a>
+        <a href="categorias.php" class="active">Categorias</a>
+        <a href="postagens.php">Postagens</a>
 
-.form-group {
-    display: flex;
-    flex-direction: column; 
-    gap: 8px;
-    margin-bottom: 20px;
-}
+        <div class="perfil-usuario">
+            <img src="https://play-lh.googleusercontent.com/jeNGu6ehpO1E-44ltojEoEAmQApE015dsuFVeqVGsizBGzlydGV8aq5C_gZrj59F93s=w240-h480-rw" alt="Avatar">
+            <span>Otávio Augusto</span>
+        </div>
+    </nav>
 
-.form-row { 
-    display: flex; 
-    gap: 20px; 
-} 
+    <main>
+        <div class="form-card">
+            <h2>Nova Categoria</h2>
+            <p>Preencha os dados abaixo para registrar uma nova categoria</p>
 
-.flex-1 { 
-    flex: 1; 
-}
+            <form action="salvar-categoria.php" method="POST">
+                
+                <div class="form-group">
+                    <label>ID</label>
+                    <input type="text" value="Auto" disabled>
+                </div>
 
-label { 
-    font-weight: bold; 
-    color: #2c3e50; 
-    font-size: 14px; 
-}
+                <div class="form-group">
+                    <label for="nome">Nome da Categoria <span style="color:red;">*</span></label>
+                    <input type="text" id="nome" name="nome" placeholder="Ex: Tecnologia, Esportes, Notícias, etc." required>
+                </div>
 
-input, select {
-    padding: 12px;
-    border: 1px solid #cbd5e0;
-    border-radius: 6px;
-    transition: 0.3s;
-}
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <select id="status" name="status" required>
+                        <option value="ativo" selected>Ativo</option>
+                        <option value="inativo">Inativo</option>
+                    </select>
+                </div>
 
-input:focus { 
-    border-color: #004a8d; 
-    outline: none; 
-    box-shadow: 0 0 0 3px rgba(0,74,141,0.1); 
-}
+                <div class="btn-group">
+                    <button type="submit" class="btn-save">
+                        <i class="fa-solid fa-save"></i> Finalizar Cadastro
+                    </button>
+                    <a href="categorias.php" class="btn-cancel">
+                        <i class="fa-solid fa-times"></i> Cancelar
+                    </a>
+                </div>
+            </form>
+        </div>
+    </main>
 
-.btn-save {
-    background-color: #27ae60;
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-}
-.btn-cancel {
-    background-color: #e74c3c;
-    color: white;
-    padding: 12px 25px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-}
+    <footer>
+        © 2026 - Desenvolvido na aula de Web I
+    </footer>
 
-</style>
+</body>
+</html>
